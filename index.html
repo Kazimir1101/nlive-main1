@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f7f8ff">
+
     <title>NorthLive - Axtardığın hər şey bir platformada</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="page-shell">
@@ -23,20 +25,16 @@
 
         <a href="#" class="logo"><span>North</span>Live</a>
 
-        <div class="header-actions">
-            <div class="section-flex-el el-two">
-                <button type="button" id="ceate-new-ad-btn-banner">
-                    <i class="fa-solid fa-square-plus"></i>
-                    <p>Yeni elan</p>
-                </button>
-            </div>
-        </div>
+        <button type="button" class="add-listing-btn">
+            <i class="fa-solid fa-square-plus"></i>
+            <span>Yeni elan</span>
+        </button>
 
     </header>
 
     <main>
 
-        <!-- PROMO / BANNER -->
+        <!-- PROMO -->
         <section class="promo-section" id="deals">
 
             <div class="promo-banner" id="promoBanner">
@@ -73,23 +71,24 @@
                 <button class="dot" aria-label="2-ci reklam"></button>
                 <button class="dot" aria-label="3-cü reklam"></button>
                 <button class="dot" aria-label="4-cü reklam"></button>
-                <button class="dot" aria-label="4-cü reklam"></button>
+                <button class="dot" aria-label="5-ci reklam"></button>
             </div>
 
         </section>
 
-        <!-- HERO -->
+        <!-- SEARCH -->
         <section class="hero">
 
-            <!-- SEARCH -->
             <form class="search-bar" id="searchForm">
                 <i class="fa-solid fa-magnifying-glass"></i>
+
                 <input
                     type="search"
                     id="searchInput"
                     placeholder="Nə axtarırsınız?"
                     aria-label="Axtarış"
                 >
+
                 <button type="submit">Axtar</button>
             </form>
 
@@ -109,7 +108,7 @@
                 <span class="category-icon">
                     <img src="https://tse2.mm.bing.net/th/id/OIP._aeedVYqN69b9RHZ1dum6AHaFF?r=0&pid=Api&h=220&P=0" alt="Məkanlar">
                 </span>
-                <span>Məkanlar</span>
+                <span> Məkanlar</span>
             </button>
 
             <button class="category-card" data-category="Xidmətlər">
@@ -132,9 +131,7 @@
         <section class="listings-section" id="listings">
 
             <div class="section-heading">
-                <div>
-                    <h4>Yeni elanlar</h4>
-                </div>
+                <h3>Yeni elanlar</h3>
             </div>
 
             <div class="listing-grid">
@@ -201,7 +198,6 @@
     </main>
 
 </div>
-
 
 <script src="app.js"></script>
 
