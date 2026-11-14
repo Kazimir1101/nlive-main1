@@ -200,10 +200,10 @@ a {
     overflow: hidden;
     border-radius: 24px;
     display: grid;
-    background-image: url("/img/123.jpeg");
-    background-position: center;
+    background-color: darkblue;
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     box-shadow: 0 8px 20px rgba(49,104,211,.08);
 }
 
