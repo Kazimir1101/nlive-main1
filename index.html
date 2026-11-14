@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8ff">
+    <title>NorthLive - Axtardığın hər şey bir platformada</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-shell">
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <a href="#" class="logo"><span>North</span>Live</a>
+
+        <div class="header-actions">
+            <button class="menu-toggle" aria-label="Menyunu aç" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>
+            </button>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- PROMO / BANNER -->
+        <section class="promo-section" id="deals">
+
+            <div class="promo-banner" id="promoBanner">
+
+                <div class="promo-slide active">
+                    <h2>Yay fürsətləri</h2>
+                    <p>Seçilmiş elanlarda 50%-dək endirim 1</p>
+                </div>
+
+                <div class="promo-slide">
+                    <h2>Yeni məkanlar kəşf et</h2>
+                    <p>Ən yaxşı restoran və kafelər bir yerdə 2</p>
+                </div>
+
+                <div class="promo-slide">
+                    <h2>Peşəkar xidmətlər</h2>
+                    <p>Etibarlı ustalar və mütəxəssislər 3</p>
+                </div>
+
+                <div class="promo-slide">
+                    <h2>NorthLive Plus</h2>
+                    <p>Premium üzvlər üçün xüsusi fürsətlər 4</p>
+                </div>
+
+                <div class="promo-slide">
+                    <h2>NorthLive Plus</h2>
+                    <p>Premium üzvlər üçün xüsusi fürsətlər 5</p>
+                </div>
+
+            </div>
+
+            <div class="slider-dots">
+                <button class="dot active" aria-label="1-ci reklam"></button>
+                <button class="dot" aria-label="2-ci reklam"></button>
+                <button class="dot" aria-label="3-cü reklam"></button>
+                <button class="dot" aria-label="4-cü reklam"></button>
+                <button class="dot" aria-label="4-cü reklam"></button>
+            </div>
+
+        </section>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <!-- SEARCH -->
+            <form class="search-bar" id="searchForm">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Nə axtarırsınız?"
+                    aria-label="Axtarış"
+                >
+                <button type="submit">Axtar</button>
+            </form>
+
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="category-grid">
+
+            <button class="category-card selected" data-category="Elanlar">
+                <span class="category-icon">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP._aeedVYqN69b9RHZ1dum6AHaFF?r=0&pid=Api&h=220&P=0" alt="Elanlar">
+                </span>
+                <span>Elanlar</span>
+            </button>
+
+            <button class="category-card" data-category="Məkanlar">
+                <span class="category-icon">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP._aeedVYqN69b9RHZ1dum6AHaFF?r=0&pid=Api&h=220&P=0" alt="Məkanlar">
+                </span>
+                <span>Məkanlar</span>
+            </button>
+
+            <button class="category-card" data-category="Xidmətlər">
+                <span class="category-icon">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP._aeedVYqN69b9RHZ1dum6AHaFF?r=0&pid=Api&h=220&P=0" alt="Xidmətlər">
+                </span>
+                <span>Xidmətlər</span>
+            </button>
+
+            <button class="category-card" data-category="Fürsətlər">
+                <span class="category-icon">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP._aeedVYqN69b9RHZ1dum6AHaFF?r=0&pid=Api&h=220&P=0" alt="Fürsətlər">
+                </span>
+                <span>Fürsətlər</span>
+            </button>
+
+        </section>
+
+        <!-- LISTINGS -->
+        <section class="listings-section" id="listings">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">NorthLive-də yeniliklər</span>
+                    <h4>Son elanlar</h4>
+                </div>
+            </div>
+
+            <div class="listing-grid">
+
+                <article class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=85" alt="Mercedes C180">
+                    </div>
+                    <div class="listing-info">
+                        <h3>Mercedes C180, 2021</h3>
+                        <strong class="price">52 000 ₼</strong>
+                        <span class="location">Bakı</span>
+                    </div>
+                </article>
+
+                <article class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Mənzil">
+                    </div>
+                    <div class="listing-info">
+                        <h3>3 otaqlı mənzil, yeni tikili</h3>
+                        <strong class="price">165 000 ₼</strong>
+                        <span class="location">Bakı</span>
+                    </div>
+                </article>
+
+                <article class="listing-card third-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=85" alt="Məhsul">
+                    </div>
+                    <div class="listing-info">
+                        <h3>Yeni məhsul, sərfəli qiymət</h3>
+                        <strong class="price">35 ₼</strong>
+                        <span class="location">Quba</span>
+                    </div>
+                </article>
+
+                <article class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Mənzil">
+                    </div>
+                    <div class="listing-info">
+                        <h3>3 otaqlı mənzil, yeni tikili</h3>
+                        <strong class="price">165 000 ₼</strong>
+                        <span class="location">Bakı</span>
+                    </div>
+                </article>
+
+                <article class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Mənzil">
+                    </div>
+                    <div class="listing-info">
+                        <h3>3 otaqlı mənzil, yeni tikili</h3>
+                        <strong class="price">165 000 ₼</strong>
+                        <span class="location">Bakı</span>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MOBILE BOTTOM NAVIGATION -->
+<nav class="mobile-bottom-nav">
+    <button class="bottom-add" aria-label="Elan əlavə et">+</button>
+</nav>
+
+<script src="app.js"></script>
+
+</body>
+</html>
