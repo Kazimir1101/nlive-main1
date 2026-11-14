@@ -200,7 +200,10 @@ a {
     overflow: hidden;
     border-radius: 24px;
     display: grid;
-    background: linear-gradient(110deg, #dce8ff, #a8caff 68%, #7eb0ff);
+    background-image: url("/img/123.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: 0 8px 20px rgba(49,104,211,.08);
 }
 
@@ -218,6 +221,32 @@ a {
         0 0 0 50px rgba(255,255,255,.1);
     pointer-events: none;
 }
+
+
+
+.el-two button{
+    width:120px;
+    height:40px;
+    border-radius:10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:16px;
+    font-weight: bold;
+    background: none;
+    background-color: none;
+    border:2px solid white;
+}
+
+.el-two button:active{
+    border:2px solid var(--blue-dark)
+}
+
+.el-two button i{
+    color:var(--blue-dark);
+    font-size:30px;
+}
+
 
 .promo-slide {
     grid-area: 1 / 1;
@@ -243,6 +272,7 @@ a {
     color: #0a2a6b;
     letter-spacing: -.8px;
     font-weight: 800;
+    color:white;
 }
 
 .promo-slide p {
@@ -250,6 +280,7 @@ a {
     margin: 0;
     color: #33528e;
     font-weight: 500;
+    color:white;
 }
 
 .slider-dots {
@@ -265,15 +296,18 @@ a {
     padding: 0;
     border: 0;
     border-radius: 50%;
-    background: #d8d9eb;
+    background: white;
     cursor: pointer;
     transition: background .25s, width .25s;
+
 }
 
 .dot.active {
     background: var(--blue);
     width: 26px;
     border-radius: 6px;
+    background: white;
+
 }
 
 
@@ -643,7 +677,6 @@ a {
         border: 0;
     }
 
-
     /* HERO */
 
     .hero {
@@ -690,11 +723,12 @@ a {
     /* PROMO */
 
     .promo-section {
-        margin: 20px 2% 10px;
+        margin: 4px 2% 10px;
+        height:160px;
     }
 
     .promo-banner {
-        min-height: 170px;
+        min-height: 150px;
         border-radius: 16px;
     }
 
@@ -704,19 +738,30 @@ a {
 
     .promo-slide h2 {
         font-size: 20px;
+        letter-spacing: 1px;
     }
 
     .promo-slide p {
-        font-size: 13px;
+        font-size: 16px;
     }
 
+
     .slider-dots {
+        position: relative;   
+        z-index: 5;
         padding: 12px 0 4px;
+        margin-top: -30px;    
+        pointer-events: none; 
     }
 
     .dot {
         width: 9px;
         height: 9px;
+        background:white;
+    }
+
+    .slider-dots .dot {
+        pointer-events: auto; 
     }
 
     .dot.active {
