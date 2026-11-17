@@ -1,8 +1,4 @@
 
-/* ==============================
-   GLOBAL
-============================== */
-
 * {
     box-sizing: border-box;
 }
@@ -49,20 +45,6 @@ a {
     margin: 0 auto;
 }
 
-
-/* ==============================
-   HEADER
-============================== */
-
-/* .site-header {
-    height: 92px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-    border:2px solid red;
-} */
-
 .site-header {
     position: fixed;
     top: 0;
@@ -75,7 +57,6 @@ a {
     gap: 28px;
     z-index: 1000;
     background: #fff;
-    border: 2px solid red;
 }
 
 .logo {
@@ -205,7 +186,6 @@ a {
 
 .promo-section {
     margin: 38px 0 0;
-    border:2px solid blue;
     margin-top:100px;
 
 }
@@ -598,7 +578,7 @@ a {
 @media (min-width: 1400px) {
 
     .hero {
-        min-height: 410px;
+        min-height: 110px;
     }
 
     .listing-image {
@@ -618,7 +598,7 @@ a {
     }
 
     .hero {
-        min-height: 340px;
+        min-height: 140px;
         padding-left: 32px;
     }
 
@@ -670,8 +650,6 @@ a {
         align-items: center;
         justify-content: space-between;
         gap: 28px;
-
-        border: 2px solid green;
     }
 
  
@@ -706,7 +684,6 @@ a {
         padding: 0;
         margin: 0;
         margin-top:-8px;
-        border:2px solid red
     }
 
 
@@ -718,7 +695,6 @@ a {
         border-radius: 30px;
         box-shadow: 0 10px 25px rgba(43, 69, 145, .12);
         margin-bottom: -20px;
-        border:2px solid green
     }
 
     .search-bar input {
@@ -742,7 +718,6 @@ a {
     .promo-section {
         margin: 4px 2% 10px;
         height: 160px;
-        border:2px solid red;
         margin-top:70px;
     }
 
@@ -797,7 +772,6 @@ a {
         gap: 10px;
         margin: 17px 2% 35px;
         margin-top:8px;
-        border:2px solid blue
     }
 
     .category-card {
@@ -829,7 +803,6 @@ a {
     .section-heading h3 {
         font-size: 16px;
         margin-top:0px;
-        border:2px solid green
     }
 
     .listing-grid {
@@ -879,8 +852,7 @@ a {
     }
 
     .listings-section{
-        margin-top:-20px;
-        border:2px solid red
+        margin-top:-10px;
     }
 
 }
