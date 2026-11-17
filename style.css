@@ -878,3 +878,258 @@ a {
     }
 
 }
+
+
+
+
+/* =================================
+   CATEGORY BOTTOM SHEET
+================================= */
+
+.category-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Скрытое состояние */
+
+.category-modal[hidden] {
+    display: none;
+}
+
+/* Затемнение */
+
+.category-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 12, 40, .55);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+/* Нижняя панель */
+
+.category-modal__panel {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 80vh;
+    height: 80dvh;
+    max-height: 850px;
+    min-height: 350px;
+
+    background: #fff;
+
+    border-radius: 26px 26px 0 0;
+
+    padding: 26px 30px;
+    padding-bottom: max(25px, env(safe-area-inset-bottom));
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(100%);
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+
+    box-shadow: 0 -10px 50px rgba(0, 0, 0, .12);
+}
+
+/* Активное состояние */
+
+.category-modal.is-open .category-modal__overlay {
+    opacity: 1;
+}
+
+.category-modal.is-open .category-modal__panel {
+    transform: translateY(0);
+}
+
+/* HEADER */
+
+.category-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 23px;
+    border-bottom: 1px solid #edf0f8;
+
+    flex-shrink: 0;
+}
+
+.category-modal__subtitle {
+    display: block;
+    color: #8490ad;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+.category-modal__heading h2 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -.7px;
+    color: #10183f;
+}
+
+/* CLOSE BUTTON */
+
+.category-modal__close {
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #f2f4fa;
+    color: #394361;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.category-modal__close:hover {
+    background: #e7edff;
+    color: #0759ee;
+    transform: rotate(90deg);
+}
+
+/* SUBCATEGORY LIST */
+
+.subcategory-list {
+    flex: 1;
+    overflow-y: auto;
+
+    padding-top: 12px;
+    padding-bottom: 10px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #dce3f5 transparent;
+}
+
+/* SUBCATEGORY ITEM */
+
+.subcategory-item {
+    width: 100%;
+    min-height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 12px 15px;
+
+    border: 0;
+    border-bottom: 1px solid #f0f2f8;
+
+    background: #fff;
+    color: #182044;
+
+    text-align: left;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        padding .2s ease,
+        color .2s ease;
+}
+
+.subcategory-item:hover {
+    background: #f5f8ff;
+    color: #0759ee;
+    padding-left: 21px;
+}
+
+.subcategory-item__arrow {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #f3f6ff;
+    color: #0759ee;
+
+    font-size: 12px;
+
+    transition: .2s ease;
+}
+
+.subcategory-item:hover .subcategory-item__arrow {
+    background: #0759ee;
+    color: #fff;
+    transform: translateX(3px);
+}
+
+/* PREVENT BACKGROUND SCROLL */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 640px) {
+
+    .category-modal__panel {
+        height: 80vh;
+        height: 80dvh;
+
+        max-height: none;
+        min-height: 0;
+
+        padding: 22px 18px;
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+
+        border-radius: 22px 22px 0 0;
+    }
+
+    .category-modal__header {
+        padding-bottom: 19px;
+    }
+
+    .category-modal__heading h2 {
+        font-size: 23px;
+    }
+
+    .category-modal__close {
+        width: 40px;
+        height: 40px;
+    }
+
+    .subcategory-item {
+        min-height: 60px;
+        font-size: 14px;
+        padding: 11px 12px;
+    }
+
+}
+
