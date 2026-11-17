@@ -1,35 +1,3 @@
-// ==============================
-// MOBILE MENU
-// ==============================
-
-const menuButton = document.querySelector(".menu-toggle");
-const desktopNav = document.querySelector(".desktop-nav");
-
-menuButton?.addEventListener("click", () => {
-    const isOpen = desktopNav.classList.toggle("mobile-open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-});
-
-
-// ==============================
-// TOAST NOTIFICATION
-// ==============================
-
-const toastEl = document.querySelector(".toast");
-let toastTimer;
-
-function showToast(message) {
-    if (!toastEl) return;
-
-    toastEl.textContent = message;
-    toastEl.classList.add("show");
-
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-        toastEl.classList.remove("show");
-    }, 2200);
-}
-
 
 // ==============================
 // BANNER / PROMO SLIDER (5s auto-rotate)
@@ -136,3 +104,220 @@ document.querySelector("#searchForm")?.addEventListener("submit", (event) => {
         showToast("Axtarış üçün söz daxil et");
     }
 });
+
+
+
+/* =================================
+   CATEGORY MODAL
+================================= */
+
+// Подкатегории главных категорий
+
+const categoryData = {
+
+    "Elanlar": [
+        "Nəqliyyat",
+        "Daşınmaz əmlak",
+        "Elektronika",
+        "Geyim və aksesuarlar",
+        "Ev və bağ",
+        "Kənd məhsulları",
+        "Uşaq aləmi",
+        "Digər elanlar"
+    ],
+
+    "Məkanlar": [
+        "Kirayə evlər",
+        "Restoranlar",
+        "Otellər",
+        "Fast Food",
+        "Coffee Shop",
+        "Gözəllik salonları",
+        "Kişi salonları",
+        "Əyləncə məkanları"
+        
+    ],
+
+    "Xidmətlər": [
+        "Təmir və tikinti",
+        "Avtoservislər",
+        "Təhsil və kurslar",
+        "Təmizlik xidmətləri",
+        "Mebel xidmətləri",
+        "Yükdaşınma və logistika",
+        "Biznes xidmətləri",
+        "Həyət və bağ"
+    ],
+
+    "Fürsətlər": [
+        "Mağazalar",
+        "Aksiyalar",
+        "Vakansiyalar",
+        "İcarə",
+        "Yol yoldaşı",
+        "Günlük işlər",
+        "İtirilmiş əşyalar",
+        "Havayı apar"
+    ]
+
+};
+
+
+// DOM ELEMENTS
+
+const categoryModal = document.getElementById("categoryModal");
+
+const modalTitle = document.getElementById("categoryModalTitle");
+
+const subcategoryList = document.getElementById("subcategoryList");
+
+const closeModalBtn = document.querySelector(".category-modal__close");
+
+const modalOverlay = document.querySelector(".category-modal__overlay");
+
+const categoryCards = document.querySelectorAll(".category-card");
+
+
+// OPEN MODAL
+
+function openCategoryModal(category) {
+
+    const subcategories = categoryData[category];
+
+    if (!subcategories) return;
+
+    // Заголовок
+    modalTitle.textContent = category;
+
+    // Очищаем предыдущий список
+    subcategoryList.innerHTML = "";
+
+    // Создаём подкатегории
+    subcategories.forEach(subcategory => {
+
+        const item = document.createElement("button");
+
+        item.type = "button";
+        item.className = "subcategory-item";
+
+        const name = document.createElement("span");
+        name.textContent = subcategory;
+
+        const arrow = document.createElement("span");
+        arrow.className = "subcategory-item__arrow";
+        arrow.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+
+        item.appendChild(name);
+        item.appendChild(arrow);
+
+        // Переход в подкатегорию
+        item.addEventListener("click", () => {
+
+            goToSubcategory(category, subcategory);
+
+        });
+
+        subcategoryList.appendChild(item);
+
+    });
+
+    // Показываем модальное окно
+    categoryModal.hidden = false;
+
+    document.body.classList.add("modal-open");
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            categoryModal.classList.add("is-open");
+        });
+    });
+
+    closeModalBtn.focus();
+}
+
+
+// CLOSE MODAL
+
+function closeCategoryModal() {
+
+    if (categoryModal.hidden) return;
+
+    categoryModal.classList.remove("is-open");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+// Скрываем после завершения анимации
+
+categoryModal.querySelector(".category-modal__panel")
+    .addEventListener("transitionend", function(event) {
+
+        if (
+            event.propertyName === "transform" &&
+            !categoryModal.classList.contains("is-open")
+        ) {
+            categoryModal.hidden = true;
+        }
+
+    });
+
+
+// CLICK ON MAIN CATEGORIES
+
+categoryCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const category = card.dataset.category;
+
+        // Обновляем активную категорию
+        categoryCards.forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        card.classList.add("selected");
+
+        // Открываем модальное окно
+        openCategoryModal(category);
+
+    });
+
+});
+
+
+// CLOSE BUTTON
+
+closeModalBtn.addEventListener("click", closeCategoryModal);
+
+
+// CLICK ON OVERLAY
+
+modalOverlay.addEventListener("click", closeCategoryModal);
+
+
+// ESC KEY
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+        closeCategoryModal();
+    }
+
+});
+
+
+// SUBCATEGORY NAVIGATION (PLACEHOLDER)
+
+function goToSubcategory(category, subcategory) {
+
+    console.log("Selected category:", category);
+
+    console.log("Selected subcategory:", subcategory);
+
+    // Здесь позже добавим реальный переход.
+    // Например:
+    // window.location.href = "/category/" + slug;
+
+}
