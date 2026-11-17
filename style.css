@@ -54,12 +54,28 @@ a {
    HEADER
 ============================== */
 
-.site-header {
+/* .site-header {
     height: 92px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 28px;
+    border:2px solid red;
+} */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    z-index: 1000;
+    background: #fff;
+    border: 2px solid red;
 }
 
 .logo {
@@ -189,6 +205,9 @@ a {
 
 .promo-section {
     margin: 38px 0 0;
+    border:2px solid blue;
+    margin-top:100px;
+
 }
 
 .promo-banner {
@@ -198,30 +217,162 @@ a {
     border-radius: 24px;
     display: grid;
 
-    background-image: url("https://tse2.mm.bing.net/th/id/OIP.LRCfRJp6kK3vV5EFSJPGCAHaEK?r=0&pid=Api&h=220&P=0");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    isolation: isolate;
 
-    box-shadow: 0 8px 20px rgba(49, 104, 211, .08);
+    background:
+        radial-gradient(
+            ellipse at 85% 100%,
+            rgba(0, 65, 255, .65),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 60% 0%,
+            rgba(0, 30, 180, .35),
+            transparent 60%
+        ),
+        #030b3e;
+
+        box-shadow: 0 8px 25px rgba(0, 35, 150, .15);
+    }
+
+
+    /* Слой анимации */
+    .promo-banner__waves {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Общие стили волн */
+    .wave {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: 2px solid rgba(0, 110, 255, .65);
+        box-shadow:
+            0 0 12px rgba(0, 85, 255, .5),
+            0 0 35px rgba(0, 70, 255, .3),
+            inset 0 0 20px rgba(0, 90, 255, .15);
+
+        will-change: transform;
+    }
+
+    /* Первая большая волна */
+.wave-1 {
+    width: 90%;
+    height: 220%;
+    left: 25%;
+    top: 20%;
+
+    border-color: rgba(0, 100, 255, .65);
+
+    transform: rotate(-24deg);
+
+    animation: waveMove1 14s ease-in-out infinite alternate;
 }
 
-.promo-banner::after {
-    content: "";
-    position: absolute;
-    width: 370px;
-    height: 370px;
-    border: 1px solid rgba(255, 255, 255, .42);
-    border-radius: 50%;
-    right: -60px;
-    top: -200px;
+/* Вторая волна */
+.wave-2 {
+    width: 85%;
+    height: 190%;
+    left: 38%;
+    top: 40%;
+
+    border-color: rgba(0, 160, 255, .8);
 
     box-shadow:
-        0 0 0 24px rgba(255, 255, 255, .12),
-        0 0 0 50px rgba(255, 255, 255, .1);
+        0 0 15px rgba(0, 120, 255, .7),
+        0 0 40px rgba(0, 80, 255, .4);
 
-    pointer-events: none;
+    transform: rotate(-35deg);
+
+    animation: waveMove2 18s ease-in-out infinite alternate;
 }
+
+/* Третья волна */
+.wave-3 {
+    width: 75%;
+    height: 180%;
+    left: 55%;
+    top: 15%;
+
+    border-color: rgba(0, 70, 255, .6);
+
+    transform: rotate(-45deg);
+
+    animation: waveMove3 16s ease-in-out infinite alternate;
+}
+
+.wave-4 {
+    width: 60%;
+    height: 160%;
+    left: 70%;
+    top: 55%;
+
+    border-color: rgba(0, 180, 255, .85);
+
+    box-shadow:
+        0 0 15px rgba(0, 150, 255, .8),
+        0 0 50px rgba(0, 100, 255, .5);
+
+    transform: rotate(-35deg);
+
+    animation: waveMove4 12s ease-in-out infinite alternate;
+}
+
+/* Анимации */
+@keyframes waveMove1 {
+    from {
+        transform: translate(-3%, 0) rotate(-24deg);
+    }
+    to {
+        transform: translate(5%, -8%) rotate(-18deg);
+    }
+}
+
+@keyframes waveMove2 {
+    from {
+        transform: translate(0, 0) rotate(-35deg);
+    }
+    to {
+        transform: translate(-8%, -5%) rotate(-28deg);
+    }
+}
+
+@keyframes waveMove3 {
+    from {
+        transform: translate(0, 0) rotate(-45deg);
+    }
+    to {
+        transform: translate(-7%, 8%) rotate(-38deg);
+    }
+}
+
+@keyframes waveMove4 {
+    from {
+        transform: translate(0, 0) rotate(-35deg);
+    }
+    to {
+        transform: translate(-10%, -10%) rotate(-25deg);
+    }
+}
+
+/* Контент поверх анимации */
+.promo-banner__content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Учитываем пользователей,
+   отключающих анимацию */
+@media (prefers-reduced-motion: reduce) {
+    .wave {
+        animation: none;
+    }
+}
+
 
 .promo-slide {
     grid-area: 1 / 1;
@@ -332,7 +483,7 @@ a {
 .category-card.selected::after {
     content: "";
     position: absolute;
-    bottom: -9px;
+    bottom: -4px;
     width: 44px;
     height: 3px;
     border-radius: 4px;
@@ -505,14 +656,25 @@ a {
     /* HEADER */
 
     .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 60px;
         padding: 0 10px;
-        position: relative;
-        z-index: 10;
-        background: rgba(248, 249, 255, .82);
-        backdrop-filter: blur(14px);
+        z-index: 1000;
+
+        background: #fff;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+
+        border: 2px solid green;
     }
 
+ 
     .logo {
         font-size: 24px;
         letter-spacing: -1.1px;
@@ -535,7 +697,7 @@ a {
     /* HERO */
 
     .hero {
-        min-height: 80px;
+        min-height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -543,6 +705,8 @@ a {
         background: none;
         padding: 0;
         margin: 0;
+        margin-top:-8px;
+        border:2px solid red
     }
 
 
@@ -553,7 +717,8 @@ a {
         padding: 6px;
         border-radius: 30px;
         box-shadow: 0 10px 25px rgba(43, 69, 145, .12);
-        margin-bottom: -10px;
+        margin-bottom: -20px;
+        border:2px solid green
     }
 
     .search-bar input {
@@ -577,6 +742,8 @@ a {
     .promo-section {
         margin: 4px 2% 10px;
         height: 160px;
+        border:2px solid red;
+        margin-top:70px;
     }
 
     .promo-banner {
@@ -629,6 +796,8 @@ a {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
         margin: 17px 2% 35px;
+        margin-top:8px;
+        border:2px solid blue
     }
 
     .category-card {
@@ -659,6 +828,8 @@ a {
 
     .section-heading h3 {
         font-size: 16px;
+        margin-top:0px;
+        border:2px solid green
     }
 
     .listing-grid {
@@ -705,6 +876,11 @@ a {
     .location {
         font-size: 12px;
         gap: 4px;
+    }
+
+    .listings-section{
+        margin-top:-20px;
+        border:2px solid red
     }
 
 }
